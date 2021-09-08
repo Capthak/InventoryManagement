@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Show</title>
+{% endblock %}
+
+{% block first %}
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Provider</th>
+        <th>Product Name</th>
+        <th>Price per</th>
+        <th>Qantity</th>
+        <th>Amount</th>
+        <th>Stock</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in obj %}
+    <tr>
+        <td>{{i.date}}</td>
+        <td>{{i.provider}}</td>
+        <td>{{i.name_product}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.stock}}</td>
+        <td><button><a href="{% url 'update' i.id %}">Update</a></button></td>
+        <td><button><a href="{% url 'delete' i.id %}">Delete</a></button></td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
